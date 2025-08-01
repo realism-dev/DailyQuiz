@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.kotlin.ksp)
 }
 
 android {
@@ -40,20 +41,24 @@ android {
 }
 
 dependencies {
+    implementation(project(":core:ui"))
+    implementation(project(":core:di"))
+    implementation(project(":core:network"))
+    implementation(project(":core:database"))
+    implementation(project(":core:model"))
+    implementation(project(":feature:quiz"))
+    implementation(project(":feature:review"))
+    implementation(project(":feature:history"))
+    implementation(project(":navigation"))
 
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.androidx.activity.compose)
-    implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.ui)
-    implementation(libs.androidx.ui.graphics)
-    implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.androidx.material3)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.ui.test.junit4)
-    debugImplementation(libs.androidx.ui.tooling)
-    debugImplementation(libs.androidx.ui.test.manifest)
+    implementation(libs.core.ktx)
+    implementation(libs.lifecycle.runtime)
+    implementation(libs.activity.compose)
+    implementation(libs.compose.ui)
+    implementation(libs.compose.ui.tooling.preview)
+    implementation(libs.navigation.compose)
+    implementation(libs.compose.material3)
+
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
 }

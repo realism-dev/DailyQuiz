@@ -20,4 +20,12 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "DailyQuiz"
-include(":app")
+include(":app", ":core:ui")
+include(":core:database")
+include(":core:network")
+include(":core:model")
+include(":feature:quiz")
+include(":feature:history")
+include(":navigation")
+include(":feature:review")
+include(":core:di")
