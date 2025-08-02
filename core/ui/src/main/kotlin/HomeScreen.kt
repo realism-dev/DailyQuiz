@@ -39,50 +39,7 @@ fun HomeScreenPreview() {
 fun HomeScreen() {
     Scaffold(
         topBar = {
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(48.dp)
-                    .background(Blue400),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.SpaceBetween
-            ) {
-                Text(
-                    text = "12:31",
-                    modifier = Modifier
-                        .padding(start = 20.dp),
-                    style = interRegular,
-                    fontSize = 14.sp,
-                    fontWeight = FontWeight.W400,
-                    color = White
-                )
-                Row (
-                    horizontalArrangement = Arrangement.spacedBy(1.dp),
-                    modifier = Modifier.padding(end = 20.dp)
-                ){
-                    Icon(
-                        painter = painterResource(R.drawable.wifi),
-                        contentDescription = "Clock",
-                        modifier = Modifier
-                            .size(15.dp),
-                        tint = White
-                    )
-                    Icon(
-                        painter = painterResource(R.drawable.network),
-                        contentDescription = "Clock",
-                        modifier = Modifier
-                            .size(15.dp),
-                        tint = White
-                    )
-                    Icon(
-                        painter = painterResource(R.drawable.power),
-                        contentDescription = "Clock",
-                        modifier = Modifier
-                            .size(15.dp),
-                        tint = White
-                    )
-                }
-            }
+            StatusBar()
         },
         content = { paddingValues ->
             Box(
@@ -100,7 +57,7 @@ fun HomeScreen() {
                     Spacer(modifier = Modifier.size(52.dp))
                     HistoryButton { }
                     Spacer(modifier = Modifier.size(116.dp))
-                    Logo()
+                    Logo(280.dp,63.dp)
                     Spacer(modifier = Modifier.size(40.dp))
                     StartQuiz { }
                 }
