@@ -39,8 +39,10 @@ android {
 
 dependencies {
     implementation(libs.compose.ui)
+    implementation(libs.compose.ui.tooling)
     implementation(libs.compose.ui.tooling.preview)
     implementation(libs.navigation.compose)
     implementation(libs.compose.material3)
-    debugImplementation(libs.ui.tooling)
+    implementation(libs.coil)
+    implementation(libs.coil.svg)
 }
