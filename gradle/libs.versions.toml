@@ -21,6 +21,7 @@ appcompat = "1.7.0"
 material = "1.12.0"
 hilt-version = "2.51.1"
 ui-tooling = "1.8.3"
+leakcanaryAndroid = "2.12"
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "app" }
@@ -56,6 +57,8 @@ coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutin
 
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt-version" }
 hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt-version" }
+hilt-androidx = { group = "androidx.hilt", name = "hilt-work", version = "1.2.0" }
+hilt-androidx-compiler = { group = "androidx.hilt", name = "hilt-compiler", version = "1.2.0" }
 hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version = "1.2.0" }
 
 
@@ -66,3 +69,6 @@ ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junit-
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
 appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+
+
+leakcanary-android = { module = "com.squareup.leakcanary:leakcanary-android", version.ref = "leakcanaryAndroid" }

@@ -32,7 +32,7 @@ fun DefaultAnswerOptionPreview() {
 @Composable
 fun DefaultAnswerOption(text: String, onButtonClick: () -> Unit) {
     Button(
-        onClick = onButtonClick,
+        onClick = { onButtonClick() },
         colors = ButtonColors(
             containerColor = Gray100,
             contentColor = Black,

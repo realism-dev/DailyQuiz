@@ -10,12 +10,14 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -37,10 +39,12 @@ import interRegular
 @Composable
 fun QuizQuestionPreview() {
     QuizQuestion(
-        5, "Как переводится слово «apple»?",
+        1, "Как переводится слово «apple»?",
         mapOf("test" to true, "test2" to true, "test3" to true, "test4" to true),
-        "test"
-    ) {}
+        "test2",
+        onVariantSelectedClick = {},
+        onNextButtonClick = {}
+    )
 }
 
 @Composable
@@ -48,22 +52,23 @@ fun QuizQuestion(
     questionNumber: Int,
     title: String,
     variants: Map<String, Boolean>,
-    selectedVariant: String,
+    selectedVariant:String,
+    onVariantSelectedClick:(String) -> Unit,
     onNextButtonClick: () -> Unit
 ) {
     Box(
         modifier = Modifier
             .width(320.dp)
-            .height(548.dp)
+            .heightIn(min = 548.dp)
             .clip(RoundedCornerShape(40.dp))
             .background(White),
-        contentAlignment = Alignment.Center,
     ) {
         Column(
             modifier = Modifier
                 .padding(24.dp)
-                .fillMaxSize(),
-            verticalArrangement = Arrangement.Center,
+                .verticalScroll(rememberScrollState())
+                .fillMaxWidth(),
+            verticalArrangement = Arrangement.Top,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
@@ -89,7 +94,7 @@ fun QuizQuestion(
                 if (selectedVariant == variantText)
                     SelectedAnswerOption(variantText) {}
                 else
-                    DefaultAnswerOption(variantText) {}
+                    DefaultAnswerOption(variantText) { onVariantSelectedClick(variantText) }
                 Spacer(modifier = Modifier.size(16.dp))
             }
             Spacer(modifier = Modifier.size(51.dp))

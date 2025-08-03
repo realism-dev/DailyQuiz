@@ -10,19 +10,25 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.State
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.flow.MutableStateFlow
 
 @Preview(showBackground = false)
 @Composable
 fun LoaderScreenPreview() {
-    LoaderScreen(true)
+    val state= remember {  mutableStateOf(true) }
+    LoaderScreen(state) {}
 }
 
 @Composable
-fun LoaderScreen(isLoading: Boolean) {
+fun LoaderScreen(isLoadingState: State<Boolean>, goToQuizScreen: () -> Unit) {
+    if(!isLoadingState.value) goToQuizScreen()
     Scaffold(
         topBar = {
             StatusBar()
@@ -41,16 +47,15 @@ fun LoaderScreen(isLoading: Boolean) {
                         .fillMaxSize()
                 ) {
                     Spacer(modifier = Modifier.size(178.dp))
-                    Logo(280.dp,63.dp)
+                    Logo(280.dp, 63.dp)
                     Spacer(modifier = Modifier.size(112.dp))
-                    if (isLoading) {
-                        CircularProgressIndicator(
-                            modifier = Modifier.width(56.dp),
-                            color = White,
-                            trackColor = Gray400,
-                            strokeWidth = 4.dp
-                        )
-                    }
+                    CircularProgressIndicator(
+                        modifier = Modifier.width(56.dp),
+                        color = White,
+                        trackColor = Gray400,
+                        strokeWidth = 4.dp
+                    )
+
                 }
             }
         })

@@ -64,7 +64,7 @@ fun DefaultNextButton(onButtonClick: () -> Unit) {
 @Preview(showBackground = false)
 @Composable
 fun BlueNextButtonPreview() {
-    BlueNextButton {}
+    BlueNextButton (){}
 }
 
 @Composable
@@ -138,13 +138,13 @@ fun WhiteNextButton(onButtonClick: () -> Unit) {
 @Preview(showBackground = false)
 @Composable
 fun BlueFinishButtonPreview() {
-    BlueFinishButton {}
+    BlueFinishButton() {}
 }
 
 @Composable
 fun BlueFinishButton(onButtonClick: () -> Unit) {
     Button(
-        onClick = onButtonClick,
+        onClick =  onButtonClick,
         colors = ButtonColors(
             containerColor = Blue400,
             contentColor = Black,
