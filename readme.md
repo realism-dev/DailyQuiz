@@ -5,7 +5,7 @@ Daily Quiz — приложение для прохождения коротки
 ## Скриншоты
 <img src="screenshots/home.png" width="400" /><img src="screenshots/quiz_1.png" width="400" />
 <img src="screenshots/quiz_2.png" width="400" /><img src="screenshots/quiz_3.png" width="400" />
-<img src="screenshots/quiz_4.png" width="400" />
+<img src="screenshots/quiz_4.png" width="400" /><img src="screenshots/videoRecord.gif" width="400" />
 
 
 ## Функционал
