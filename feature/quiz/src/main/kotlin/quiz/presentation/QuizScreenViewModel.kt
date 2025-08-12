@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import mapper.toQuizResult
 import model.Question
 import quiz.model.QuizRepository
 import javax.inject.Inject
@@ -128,7 +129,12 @@ class QuizScreenViewModel @Inject constructor(private val quizRepository: QuizRe
 
     private fun finishQuiz() {
         calculateRating()
+        viewModelScope.launch {
+            quizRepository.saveQuizResult(selectedVariants.value.toQuizResult(
+                rating = _rating.value,
+                createDate = System.currentTimeMillis()
+            ))
+        }
         _isFinished.value = true
-        Log.d("QUIZVIEWMODEL", selectedVariants.value.toString())
     }
 }

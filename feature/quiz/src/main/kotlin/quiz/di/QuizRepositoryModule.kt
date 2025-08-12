@@ -7,6 +7,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import api.TriviaApiService
+import room.QuizResultDao
 import javax.inject.Singleton
 
 @Module
@@ -15,7 +16,7 @@ object QuizRepositoryModule {
 
     @Provides
     @Singleton
-    fun provideQuizRepository(apiService: TriviaApiService): QuizRepository {
-        return QuizRepositoryImpl(apiService)
+    fun provideQuizRepository(api: TriviaApiService, dao: QuizResultDao): QuizRepository {
+        return QuizRepositoryImpl(api,dao)
     }
 }

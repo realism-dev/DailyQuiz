@@ -48,7 +48,7 @@ dependencies {
     implementation(project(":navigation"))
     implementation(project(":feature:quiz"))
 //    implementation(project(":core:di"))
-//    implementation(project(":core:database"))
+    implementation(project(":core:database"))
 //    implementation(project(":core:model"))
 //    implementation(project(":feature:review"))
 //    implementation(project(":feature:history"))
