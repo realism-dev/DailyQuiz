@@ -1,12 +1,12 @@
 package quiz.di
 
-import quiz.model.QuizRepository
 import quiz.repository.QuizRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import api.TriviaApiService
+import network.api.TriviaApiService
+import model.repository.QuizRepository
 import room.QuizResultDao
 import javax.inject.Singleton
 

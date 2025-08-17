@@ -11,9 +11,9 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import mapper.toQuizResult
-import model.Question
-import quiz.model.QuizRepository
+import model.mapper.toQuizResult
+import model.api.Question
+import model.repository.QuizRepository
 import javax.inject.Inject
 
 @HiltViewModel

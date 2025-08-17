@@ -44,27 +44,17 @@ android {
 
 dependencies {
     implementation(project(":core:ui"))
-    implementation(project(":core:network"))
     implementation(project(":navigation"))
-    implementation(project(":feature:quiz"))
-//    implementation(project(":core:di"))
-    implementation(project(":core:database"))
-//    implementation(project(":core:model"))
-//    implementation(project(":feature:review"))
-//    implementation(project(":feature:history"))
 
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime)
     implementation(libs.activity.compose)
-    implementation(libs.compose.ui)
-    implementation(libs.compose.ui.tooling)
-    implementation(libs.compose.ui.tooling.preview)
     implementation(libs.navigation.compose)
     implementation(libs.compose.material3)
 
     implementation(libs.hilt.android)
-    ksp(libs.hilt.compiler)
     implementation(libs.hilt.navigation.compose)
+    ksp(libs.hilt.compiler)
 
     debugImplementation (libs.leakcanary.android)
 }

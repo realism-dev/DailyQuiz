@@ -42,6 +42,7 @@ android {
 dependencies {
     implementation(project(":core:ui"))
     implementation(project(":core:network"))
+    implementation(project(":core:model"))
     implementation(project(":core:database"))
     implementation(libs.compose.ui)
     implementation(libs.compose.material3)
